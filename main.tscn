@@ -1,15 +1,28 @@
 [gd_scene format=3 uid="uid://t5y6xy0dnd7f"]
 
 [ext_resource type="Script" uid="uid://bgn6bfhthwti3" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://j83w1wspc3kh" path="res://main.gdshader" id="2_0xm2m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-albedo_color = Color(0.95686275, 0.76862746, 0.1882353, 1)
-roughness = 0.4
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
+noise_type = 0
+frequency = 0.008
+fractal_octaves = 10
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0xm2m"]
-material = SubResource("StandardMaterial3D_ig7tw")
-radius = 0.15
-height = 1.2
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
+noise = SubResource("FastNoiseLite_0xm2m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+render_priority = 0
+shader = ExtResource("2_0xm2m")
+shader_parameter/soggy_factor = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_h2yge")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1bvp3"]
+material = SubResource("ShaderMaterial_h2yge")
+top_radius = 0.08
+bottom_radius = 0.09
+radial_segments = 16
+rings = 32
 
 [node name="Main" type="Node2D" unique_id=1129250910]
 script = ExtResource("1_ig7tw")
@@ -25,4 +38,4 @@ light_energy = 1.5
 
 [node name="Fry" type="MeshInstance3D" parent="World" unique_id=2071623522]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_0xm2m")
+mesh = SubResource("CylinderMesh_1bvp3")
