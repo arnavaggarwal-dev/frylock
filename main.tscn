@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bgn6bfhthwti3" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://j83w1wspc3kh" path="res://main.gdshader" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://bxel5pf76tpxp" path="res://assets/816237__qubodup__crunch.wav" id="3_h2yge"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
 noise_type = 0
-frequency = 0.008
+frequency = 0.0004
 fractal_octaves = 10
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
@@ -30,12 +31,21 @@ script = ExtResource("1_ig7tw")
 [node name="World" type="Node3D" parent="." unique_id=1950313102]
 
 [node name="Camera3D" type="Camera3D" parent="World" unique_id=1787329774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2690659)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=146749196]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 2, 4, 3)
 light_energy = 1.5
+shadow_enabled = true
 
 [node name="Fry" type="MeshInstance3D" parent="World" unique_id=2071623522]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_1bvp3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1615832127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
+light_color = Color(1, 0.89411765, 0.70980394, 1)
+light_energy = 0.4
+
+[node name="CrunchSound" type="AudioStreamPlayer" parent="." unique_id=142627173]
+stream = ExtResource("3_h2yge")
