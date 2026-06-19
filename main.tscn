@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgn6bfhthwti3" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://j83w1wspc3kh" path="res://main.gdshader" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bxu5osuyshti6" path="res://sogginess.gd" id="2_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://bxel5pf76tpxp" path="res://assets/816237__qubodup__crunch.wav" id="3_h2yge"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
@@ -19,7 +20,6 @@ shader_parameter/soggy_factor = 0.0
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_h2yge")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1bvp3"]
-material = SubResource("ShaderMaterial_h2yge")
 top_radius = 0.08
 bottom_radius = 0.09
 radial_segments = 16
@@ -29,6 +29,7 @@ rings = 32
 script = ExtResource("1_ig7tw")
 
 [node name="World" type="Node3D" parent="." unique_id=1950313102]
+script = ExtResource("2_1bvp3")
 
 [node name="Camera3D" type="Camera3D" parent="World" unique_id=1787329774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2690659)
@@ -40,6 +41,7 @@ shadow_enabled = true
 
 [node name="Fry" type="MeshInstance3D" parent="World" unique_id=2071623522]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_h2yge")
 mesh = SubResource("CylinderMesh_1bvp3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1615832127]
