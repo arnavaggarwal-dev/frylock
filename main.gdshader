@@ -4,15 +4,23 @@ uniform float soggy_factor : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D noise_tex : hint_default_white;
 
 void vertex() {
-    // Curve the fry along its length
-    float t = VERTEX.x; // -1 to 1 along the fry length
-    VERTEX.y += sin(t * 3.14159) * 0.18; // gentle arc upward in middle
-    VERTEX.y += sin(t * 6.0) * 0.03;     // slight wiggle
-    
-    // Surface bumpiness from noise
-    vec2 uv = UV * 4.0;
-    float noise = texture(noise_tex, uv).r;
-    VERTEX += NORMAL * noise * 0.03 * (1.0 - soggy_factor);
+	// t goes from 0.0 (bottom) to 1.0 (top)
+	float t = (VERTEX.y + 1.0) / 2.0;
+	
+	// 7 degree tilt toward user (along Z axis)
+	float tilt_rad = 0.349066; // 7 degrees in radians
+	VERTEX.z += VERTEX.y * sin(tilt_rad);
+	VERTEX.y *= cos(tilt_rad);
+	
+	// Sogginess droop — sags toward user (Z forward) as it gets soggy
+	float droop_strength = t * t * soggy_factor;
+	VERTEX.z += droop_strength * 0.9;
+	VERTEX.y -= droop_strength * 0.3;
+	
+	// Surface bumpiness — flattens as soggy
+	vec2 uv = UV * 4.0;
+	float noise = texture(noise_tex, uv).r;
+	VERTEX += NORMAL * noise * 0.04 * (1.0 - soggy_factor);
 }
 
 void fragment() {

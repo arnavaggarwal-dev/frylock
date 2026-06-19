@@ -32,7 +32,7 @@ script = ExtResource("1_ig7tw")
 script = ExtResource("2_1bvp3")
 
 [node name="Camera3D" type="Camera3D" parent="World" unique_id=1787329774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2690659)
+transform = Transform3D(1, 0, 0, 0, 0.9540993, 0.29949042, 0, -0.29949042, 0.9540993, 0, 0.931653, 2.2690659)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=146749196]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 2, 4, 3)
@@ -40,7 +40,7 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="Fry" type="MeshInstance3D" parent="World" unique_id=2071623522]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.97741956, 0, 0.21130775, 0, 1, 0, -0.21130775, 0, 0.97741956, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_h2yge")
 mesh = SubResource("CylinderMesh_1bvp3")
 
