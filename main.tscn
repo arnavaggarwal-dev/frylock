@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bgn6bfhthwti3" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bxu5osuyshti6" path="res://sogginess.gd" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://gthjb2v5bpv4" path="res://fry.tscn" id="3_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://bxel5pf76tpxp" path="res://assets/816237__qubodup__crunch.wav" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dimqnwkhnl1gu" path="res://assets/models/tripo_convert_a7c24d05-d432-4e8e-b6e6-ae9040f45896.fbx" id="4_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=1129250910]
 script = ExtResource("1_ig7tw")
@@ -19,12 +19,12 @@ transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.707
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="Fry" parent="World" unique_id=838381626 instance=ExtResource("3_1bvp3")]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1615832127]
+[node name="OmniLight3D" type="OmniLight3D" parent="World" unique_id=1615832127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 light_color = Color(1, 0.89411765, 0.70980394, 1)
 light_energy = 0.4
 
-[node name="CrunchSound" type="AudioStreamPlayer" parent="." unique_id=142627173]
+[node name="CrunchSound" type="AudioStreamPlayer" parent="World" unique_id=142627173]
 stream = ExtResource("3_h2yge")
+
+[node name="tripo_convert_a7c24d05-d432-4e8e-b6e6-ae9040f45896" parent="." unique_id=98445438 instance=ExtResource("4_1bvp3")]
