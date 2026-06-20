@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gthjb2v5bpv4"]
+
+[ext_resource type="ArrayMesh" uid="uid://b68qn7psqyonx" path="res://assets/models/tripo_convert_48eabd0d-f708-47e6-82a8-9b9558cc4a6e.obj" id="1_xqyxl"]
+
+[node name="Node3D" type="Node3D" unique_id=838381626]
+
+[node name="TripoConvert48Eabd0dF70847e682a89b9558Cc4a6e" type="MeshInstance3D" parent="." unique_id=580152589]
+mesh = ExtResource("1_xqyxl")

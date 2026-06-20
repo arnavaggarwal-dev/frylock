@@ -2,7 +2,9 @@ shader_type spatial;
 
 uniform float soggy_factor : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D noise_tex : hint_default_white;
-
+uniform sampler2D albedo_tex : source_color;
+uniform sampler2D roughness_tex;
+uniform sampler2D normal_tex : hint_normal;
 void vertex() {
 	// t goes from 0.0 (bottom) to 1.0 (top)
 	float t = (VERTEX.y + 1.0) / 2.0;
